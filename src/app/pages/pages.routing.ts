@@ -1,5 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+
+import { AuthGuard } from '../guards/auth.guard';
+
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -8,7 +11,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
-import { AuthGuard } from '../guards/auth.guard';
+//Mantenimiento
+import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 const routes: Routes = [
@@ -17,11 +22,18 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     children: [
       { path: '', component: DashboardComponent, data: { titulo: 'Dasboard'} },
-      { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress'} },
-      { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Gráfica # 1'} },
       { path: 'account-settings', component: AccountSettingsComponent , data: { titulo: 'Ajustes de cuenta'}},
+      { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Gráfica # 1'} },
+      { path: 'perfil', component: PerfilComponent, data: { titulo: 'Perfil de Usuario'} },
+      { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress'} },
       { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas'}},
-      { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RXJS'}}
+      { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RXJS'}},
+
+      //Mantenimientos
+      { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuario de la aplicacion'}},
+
+
+
     ]
   },
 ];

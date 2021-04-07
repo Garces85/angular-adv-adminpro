@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Modulos propios */
 import { SharedModule } from '../shared/shared.module';
@@ -14,6 +14,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { UsuariosComponent } from './mantenimiento/usuarios/usuarios.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -25,7 +27,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     PagesComponent,
     AccountSettingsComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
+    UsuariosComponent,
+    PerfilComponent
   ],
   exports: [
     DashboardComponent,
@@ -35,11 +39,12 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     AccountSettingsComponent
   ],
   imports: [
-    FormsModule,
-    CommonModule,
     AppRoutingModule,
+    CommonModule,
+    ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
-    ComponentsModule
 
   ],
 })
